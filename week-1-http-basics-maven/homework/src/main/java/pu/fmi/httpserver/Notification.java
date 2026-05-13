@@ -1,5 +1,6 @@
 package pu.fmi.httpserver;
 
+
 public class Notification {
   private int id;
   private String title;

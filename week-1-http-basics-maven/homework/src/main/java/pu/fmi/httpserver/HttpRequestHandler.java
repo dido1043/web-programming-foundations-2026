@@ -82,26 +82,14 @@ public class HttpRequestHandler {
   }
 
   private HttpResponse<String> delete(String path) {
+    Notification notification = find(path);
 
-    // TODO: DELETE /notifications/{id} – довършване на имплементацията
-    // * От подадения path (например "/notifications/1") извлечи id-то
-    // * Потърси известие със съответното id в списъка с известия
-    //
-    // * Ако не бъде намерено такова:
-    //    → върни отговор със статус NOT_FOUND и съобщение "Notification not found"
-    //
-    // * Ако бъде намерено, но вече е маркирано като изтрито:
-    //    → върни отговор със статус NOT_FOUND и съобщение "Notification not found"
-    //
-    // * Ако бъде намерено и НЕ е изтрито:
-    //    → маркирай известието като изтрито (soft delete)
-    //    → върни статус NO_CONTENT
-    //
-    // ВАЖНО:
-    // * Всички предоставени Unit тестове трябва да минават успешно
-    // * Не променяйте тестовете
+    if (notification == null || notification.isDeleted()) {
+      return new HttpResponse<>(HttpStatus.NOT_FOUND, "Notification not found");
+    }
 
-    return null;
+    notification.setDeleted(true);
+    return new HttpResponse<>(HttpStatus.NO_CONTENT, null);
   }
 
   private Notification find(String path) {
