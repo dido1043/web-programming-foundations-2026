@@ -21,13 +21,13 @@ public class DeliveryService implements DeliveryServiceInterface {
 
   // DI-1. Field Injection - чрез добавяне на анотацията @Autowired над полето (не трябва да е final)
   private final DeliveryRepository deliveryRepository;
-  private final CourierRepository courierRepository;
+  private  CourierRepository courierRepository;
   private final WarehouseRepository warehouseRepository;
 
   // TODO: Завършете имплементацията на Constructor Injection-а на DeliveryService
   // * В момента полето 'deliveryEstimator' е дефинирано, но не се иницилизира в конструктора
   // * Добавете липсващото присвояване в конструктора
-  private DeliveryEstimator deliveryEstimator;
+  private final DeliveryEstimator deliveryEstimator;
 
   // DI-2. Constructor Injection - чрез добавяне на конструктор (препоръчителен начин в Spring)
   // - добра практика dependency-тата при Constructor Injection да са final
@@ -42,13 +42,14 @@ public class DeliveryService implements DeliveryServiceInterface {
     this.deliveryRepository = deliveryRepository;
     this.courierRepository = courierRepository;
     this.warehouseRepository = warehouseRepository;
+    this.deliveryEstimator = deliveryEstimator;
   }
 
   // DI-3. Setter Injection - чрез добавяне на setter метод (използва се за
   // опционални/незадължителни зависимости)
-  //    public void setCourierRepository(CourierRepository courierRepository) {
-  //        this.courierRepository = courierRepository;
-  //    }
+      public void setCourierRepository(CourierRepository courierRepository) {
+          this.courierRepository = courierRepository;
+      }
 
   @PostConstruct
   public void init() {
