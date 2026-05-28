@@ -24,9 +24,6 @@ public class DeliveryService implements DeliveryServiceInterface {
   private  CourierRepository courierRepository;
   private final WarehouseRepository warehouseRepository;
 
-  // TODO: Завършете имплементацията на Constructor Injection-а на DeliveryService
-  // * В момента полето 'deliveryEstimator' е дефинирано, но не се иницилизира в конструктора
-  // * Добавете липсващото присвояване в конструктора
   private final DeliveryEstimator deliveryEstimator;
 
   // DI-2. Constructor Injection - чрез добавяне на конструктор (препоръчителен начин в Spring)
