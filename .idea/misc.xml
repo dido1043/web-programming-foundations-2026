@@ -11,7 +11,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="openjdk-26" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/week-3-spring-mvc-rest-api" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_26_PREVIEW" project-jdk-name="openjdk-26" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/week-4-sql-jdbc-spring-data" />
   </component>
 </project>
